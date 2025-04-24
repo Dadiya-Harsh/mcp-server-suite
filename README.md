@@ -1,6 +1,6 @@
-# my-mcp-servers
+# mcp-server-suite
 
-**my-mcp-servers** is a customizable MCP (Model Context Protocol) server designed as a foundation for all your future automation, integration, and AI-powered workflows. Built for extensibility, it enables you to create, connect, and manage custom tools and services in a modular way.
+**mcp-server-suite** is a customizable MCP (Model Context Protocol) server designed as a foundation for all your future automation, integration, and AI-powered workflows. Built for extensibility, it enables you to create, connect, and manage custom tools and services in a modular way.
 
 ## Features
 
@@ -21,8 +21,8 @@
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/my-mcp-servers.git
-    cd my-mcp-servers
+    git clone https://github.com/yourusername/mcp-server-suite.git
+    cd mcp-server-suite
     ```
 
 2. Install dependencies:
