@@ -1,13 +1,14 @@
 # my-mcp-servers
 
-**my-mcp-servers** is a customizable MCP (Modular Command Platform) server designed to serve as a foundation for a wide range of automation, integration, and AI-powered tasks. This project aims to provide a flexible, extensible platform for building and running custom tools and services.
+**my-mcp-servers** is a customizable MCP (Model Context Protocol) server designed as a foundation for all your future automation, integration, and AI-powered workflows. Built for extensibility, it enables you to create, connect, and manage custom tools and services in a modular way.
 
 ## Features
 
+- **Model Context Protocol** core for flexible context management
 - Modular architecture for adding new tools and services
-- Easy integration with APIs (e.g., Tavily web search)
+- Easy integration with APIs and external systems
 - Environment variable support via `.env` files
-- Designed for future expansion and customization
+- Designed for ongoing expansion and customization
 
 ## Getting Started
 
@@ -49,14 +50,14 @@ python web_search_tavily.py
 
 ## Adding New Tools
 
-You can add new tools by creating Python modules and registering them with the MCP server. See [`web_search_tavily.py`](web_search_tavily.py) for an example.
+Add new tools by creating Python modules and registering them with the MCP server. See [`web_search_tavily.py`](web_search_tavily.py) for an example. The platform is designed to support any future tool or integration you need.
 
 ## Roadmap
 
-- Add more built-in tools (e.g., file management, scheduling, notifications)
-- Improve documentation and usage examples
+- Add more built-in tools (file management, scheduling, notifications, etc.)
+- Expand documentation and usage examples
 - Add authentication and security features
-- Support for more transports and deployment options
+- Support more transports and deployment options
 
 ## Contributing
 
