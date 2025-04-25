@@ -1,21 +1,30 @@
 # mcp-server-suite
 
-**mcp-server-suite** is a customizable MCP (Model Context Protocol) server designed as a foundation for all your future automation, integration, and AI-powered workflows. Built for extensibility, it enables you to create, connect, and manage custom tools and services in a modular way.
+**mcp-server-suite** is a comprehensive collection of MCP (Model Context Protocol) servers designed to be the "HuggingFace for automation". Our vision is to create a community-driven platform where developers can both use pre-built servers and contribute their own, making automation and AI-powered workflows accessible to everyone.
 
 ## Features
 
 - **Model Context Protocol** core for flexible context management
 - Modular architecture for adding new tools and services
+- Growing collection of ready-to-use MCP servers
 - Easy integration with APIs and external systems
 - Environment variable support via `.env` files
-- Designed for ongoing expansion and customization
+- Community-driven expansion and customization
+
+## Available Servers
+
+### Core Servers
+- **Web Search Server**: Integrate web search capabilities using Tavily API
+- **File Explorer Server**: Safe file system operations with progress reporting
+- **PostgreSQL Server**: Both sync and async database operations
+- More coming soon!
 
 ## Getting Started
 
 ### Prerequisites
 
 - Python 3.13 or higher
-- [pip](https://pip.pypa.io/en/stable/)
+- [UV](https://github.com/astral-sh/uv) - Fast Python package installer and resolver
 
 ### Installation
 
@@ -25,34 +34,66 @@
     cd mcp-server-suite
     ```
 
-2. Install dependencies:
+2. Install UV if you haven't already:
     ```sh
-    pip install -r requirements.txt
-    ```
-    Or, if using `pyproject.toml`:
-    ```sh
-    pip install .
+    pip install uv
     ```
 
-3. Set up your environment variables (e.g., `TAVILY_API_KEY`) in a `.env` file.
+3. Create and activate a virtual environment:
+    ```sh
+    uv venv
+    # On Windows:
+    .venv\Scripts\activate
+    # On Unix/macOS:
+    source .venv/bin/activate
+    ```
 
-### Running the Server
+4. Install dependencies using UV:
+    ```sh
+    uv pip install -e .
+    ```
 
-To start the main server:
+5. Set up your environment variables in a `.env` file:
+    ```sh
+    # Required for web search server
+    TAVILY_API_KEY=your_api_key_here
+    
+    # Required for PostgreSQL server
+    DATABASE_URI=postgresql://user:password@localhost:5432
+    
+    # Required for file explorer server
+    ALLOWED_BASE_PATH=E:\Your\Safe\Path
+    ```
+
+### Running the Servers
+
+Each server can be run independently:
+
 ```sh
-python main.py
+# Web Search Server
+python web_search/web_search_sse.py
+
+# File Explorer Server
+python file_explore/basic_file_server.py
+
+# PostgreSQL Server (async)
+python database/postgresql/async_postgresql_server.py
 ```
 
-To run a specific tool server (e.g., web search):
-```sh
-python web_search_tavily.py
-```
+## Using the Platform
 
-## Adding New Tools
+### As a User
 
-Add new tools by creating Python modules and registering them with the MCP server. See [`web_search_tavily.py`](web_search_tavily.py) for an example. The platform is designed to support any future tool or integration you need.
+1. Install the package:
+    ```sh
+    uv pip install mcp-server-suite
+    ```
 
----
+2. Import and use any server:
+    ```python
+    from mcp_server_suite.web_search import web_search_server
+    from mcp_server_suite.database import async_postgresql_server
+    ```
 
 ## 📌 Planned MCP Servers
 
@@ -75,24 +116,67 @@ Add new tools by creating Python modules and registering them with the MCP serve
 - **Smart Task Planner MCP**: Convert vague goals into structured, scheduled learning/task plans.
 - **FAQ Assistant MCP**: Answer questions based on uploaded files or organization docs.
 
----
+## Vision & Roadmap
 
-## Roadmap
+We're building the "HuggingFace for automation" with these goals:
 
-- Add more built-in tools (file management, scheduling, notifications, etc.)
-- Expand documentation and usage examples
-- Add authentication and security features
-- Support more transports and deployment options
-- Implement the full suite of planned MCP tools (see above)
+### Immediate Goals
+- Expand server collection with most-requested functionalities
+- Build a central registry for discovering and sharing servers
+- Create comprehensive documentation and examples
+- Implement authentication and security features
+
+### Community Features (Coming Soon)
+- Server discovery and search
+- Easy server deployment and sharing
+- Version control and dependency management
+- Usage analytics and monitoring
+- Community ratings and reviews
+
+### Server Categories
+
+#### Data & Analytics
+- Database connectors (MySQL, MongoDB, etc.)
+- Analytics engines
+- Data transformation tools
+
+#### AI/ML Tools
+- Model deployment servers
+- Training job managers
+- Dataset handlers
+- Experiment trackers
+
+#### DevOps & Infrastructure
+- CI/CD integrators
+- Cloud service managers
+- Monitoring tools
+- Log analyzers
+
+#### Application Integration
+- Email/SMS servers
+- Payment processors
+- Authentication services
+- File storage connectors
 
 ## Contributing
 
-Contributions are welcome! Please open issues or pull requests for suggestions, bug fixes, or new features.
+Join us in building the future of automation! Contributions are welcome:
+
+1. Fork the repository
+2. Create your feature branch
+3. Add your server or improvements
+4. Submit a pull request
+
+See our [Contributing Guidelines](CONTRIBUTING.md) for more details.
+
+## Support
+
+- [Documentation](docs/)
+- [Discord Community](https://discord.gg/your-server)
+- [GitHub Issues](https://github.com/Dadiya-Harsh/mcp-server-suite/issues)
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-
 ---
-
